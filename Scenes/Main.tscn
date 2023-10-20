@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdnjf0hqmrpi3"]
+
+[ext_resource type="Script" path="res://Scripts/AudioReactivity.gd" id="1_8wdlq"]
+[ext_resource type="AudioStream" uid="uid://bnldg7uqdn5x6" path="res://Audio/MarkoCindric_DayInTheLife.wav" id="2_ccnc4"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_pct4g"]
+
+[sub_resource type="Sky" id="Sky_vl706"]
+sky_material = SubResource("PhysicalSkyMaterial_pct4g")
+
+[sub_resource type="Environment" id="Environment_7lwng"]
+background_mode = 2
+sky = SubResource("Sky_vl706")
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_8wdlq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ccnc4")
+autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 8)
+environment = SubResource("Environment_7lwng")
+fov = 37.8493
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.54024, -0.567433, -0.621418, 0, -0.738455, 0.674302, -0.841511, 0.364285, 0.398943, 0, 0, 0)
