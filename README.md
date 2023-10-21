@@ -5,6 +5,9 @@ Created in Godot 4.1.2.
 
 Uses a simple Blender cube modified so its origin is in the centre of its bottom face. This ensures that the bars align to their bottom baseline rather than their vertical centre.
 
+Camera position and max height of the bars is calculated dynamically 
+based on `VU_COUNT` (i.e. number of bars).
+
 Project comes with an audio sample produced by myself, though any WAV or OGG should work.
 
 # Screenshot

@@ -5,11 +5,11 @@ extends Node3D
 
 var spectrum
 var bars = [] # Array to store our audio bars
-const VU_COUNT = 16 # Total number of bars
+const VU_COUNT : int = 16 # Total number of bars
 const BAR_WIDTH = 0.5 # For code legibility; the exact width of our bar mesh
 const FREQ_MAX = 4096 # i.e. Cutoff
 const MIN_DB = 60 # i.e. Sensitivity
-const HEIGHT = 10 # Max Y scale of bars
+const HEIGHT = VU_COUNT / 2 # Max Y scale of bars
 const GAP = 0.1 # Space between each bar
 var print_hz_ranges = true
 
@@ -30,9 +30,9 @@ func _ready():
 		bars.append(bar_instance)
 
 		# Dynamically adjust the camera to focus on the bars
-		get_viewport().get_camera_3d().position.x = (VU_COUNT - 1) * (BAR_WIDTH + GAP) / 2
-		get_viewport().get_camera_3d().position.y = VU_COUNT / 3.2
-		get_viewport().get_camera_3d().position.z = VU_COUNT / 1.6
+		get_viewport().get_camera_3d().position = Vector3((VU_COUNT - 1) * (BAR_WIDTH + GAP) / 2,
+				VU_COUNT / 3.2,
+				VU_COUNT / 1.6)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
